@@ -12,10 +12,6 @@ pkg-config systemd --variable=systemdsystemconfdir
 
 echo
 
-#commands to check status of a unit and check for jobs or journal entries
-systemctl status boot.mount
-systemctl list-jobs
-journalctl _SYSTEM_UNIT=unit
 
 #now lets make a 2 test units. One will depend on the other.
 cd /etc/systemd/system
@@ -52,3 +48,5 @@ systemctl stop test1.target test2.target
 systemctl disable test1.target test2.target
 sudo rm test1.target test2.target
 systemctl daemon-reload
+
+echo All test unit files created by this script have been stopped and removed.
